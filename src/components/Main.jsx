@@ -3,6 +3,7 @@ import { Container, Row, Col, Carousel, ListGroup } from "react-bootstrap"
 import menuItems from "../data/menu.json"
 import DishComments from "./DishComments"
 import ReservationForm from "./ReservationForm"
+import ReservationsList from "./ReservationsList"
 
 class Main extends Component {
   constructor() {
@@ -36,6 +37,11 @@ class Main extends Component {
 
     return (
       <Container>
+        <Row className="justify-content-center">
+          <Col md={6}>
+            <ReservationsList />
+          </Col>
+        </Row>
         <Row className="justify-content-center">
           <Col md={6}>
             <Carousel>{menuItems.map(createCarouselItem)}</Carousel>
