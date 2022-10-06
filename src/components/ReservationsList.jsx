@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { ListGroup, Alert } from "react-bootstrap"
 import { SpinnerDiamond } from "spinners-react"
+import { parseISO, format } from "date-fns"
 
 class ReservationsList extends Component {
   state = {
@@ -79,7 +80,7 @@ class ReservationsList extends Component {
           {this.state.reservations.map((bookedTable, index) => (
             <ListGroup.Item key={index}>
               {bookedTable.name} for {bookedTable.numberOfPeople} at{" "}
-              {bookedTable.dateTime}
+              {format(parseISO(bookedTable.dateTime), "do MMMM yyyy | HH:mm")}
             </ListGroup.Item>
           ))}
         </ListGroup>
